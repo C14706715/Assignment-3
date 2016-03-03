@@ -99,8 +99,29 @@ public class Game
         boolean running=true;
         while(running)
         {   
-            update();  
-            render(1.0f);
+            //initialise loops variable
+            loops=0;
+
+            //this while loop checks is program is running slow, keep updating 
+            //until it has been updated the max amount of times
+            //updating
+            while(System.currentTimeMillis() > nextGameTick && loops < MAX_FRAMESKIPS)
+            {
+               update();
+               //keeps track of how many updates has gone through per second
+               ticks++;
+               nextGameTick += TIME_PER_TICK;
+               //keeps track of how many loops which the while loop has gone through
+               loops++;
+            }
+            
+            //rendering
+            //this compares how much time it actually took to render compared to how much time was predicted to render
+            //have to cast to a float
+            interpolation = (float) ((System.currentTimeMillis() + TIME_PER_TICK)-nextGameTick)/(float)TIME_PER_TICK;
+            //this ensures the game runs seamlessly without lagging
+            render(interpolation);
+            
         }//game is finished
     }
 
