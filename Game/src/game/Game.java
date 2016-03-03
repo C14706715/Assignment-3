@@ -78,11 +78,29 @@ public class Game
         
         input = new Input();
         
+        //game loop
+        //this is one update
+        //60 frames per second
+        final int TICKS_PER_SECOND = 60;
+        final int TIME_PER_TICK = 100/TICKS_PER_SECOND;
+        //this is the max amount of updates per render
+        final int MAX_FRAMESKIPS = 5;
+        
+        //real time
+        long nextGameTick=System.currentTimeMillis();
+        int loops;
+        //prevents characters from skipping
+        float interpolation;
+        
+        long timeAtLastFPSCheck=0;
+        int ticks=0;
+        
+                    
         boolean running=true;
         while(running)
-        {
-          update();  
-          render(1.0f);
+        {   
+            update();  
+            render(1.0f);
         }//game is finished
     }
 
