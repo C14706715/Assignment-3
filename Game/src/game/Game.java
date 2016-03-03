@@ -6,7 +6,10 @@
 package game;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
@@ -15,7 +18,8 @@ public class Game
     //Final means it cant be changed
     public final static int width=800;
     public final static int height=600;
-    //String to use as Game title
+    
+//String to use as Game title
     private String gameName="Flappy Bird";
     
     //Java object which allows me to draw to a window
@@ -23,10 +27,31 @@ public class Game
     
     //instance of input class
     private Input input;
-    
+     
     //acts as storage for all update and render info
     private ArrayList <Updatable> updatables = new ArrayList<>();
     private ArrayList <Renderable> renderables = new ArrayList<>();        
+   
+    public void addUpdatable(Updatable u)
+    {
+        updatables.add(u);
+    }
+    
+    public void removeUpdatable(Updatable u)
+    {
+        updatables.remove(u);
+    }
+    
+        public void addRenderable(Renderable u)
+    {
+        renderables.add(u);
+    }
+    
+    public void removeRederable(Renderable u)
+    {
+        renderables.remove(u);
+    }
+    
     public void Start()
     {
         //initialise windows and jframe
@@ -57,6 +82,7 @@ public class Game
         while(running)
         {
           update();  
+          render(1.0f);
         }//game is finished
     }
 
@@ -70,14 +96,42 @@ public class Game
     
     private void render(float interpolation)
     {
-           for(Renderable r: renderables)   
-           {
-               r.render(g2d, interpolation);
-           }
-           
+       BufferStrategy b= game.getBufferStrategy(); 
+       if(b == null)
+       {
+           game.createBufferStrategy(2);
+           return;
+       }
+        
+       Graphics2D g = (Graphics2D) b.getDrawGraphics();
+       //this method clears everything on screen and redraws everything
+       g.clearRect(0, 0, game.getWidth(), game.getHeight());
+       for(Renderable r: renderables)   
+       {
+          r.render(g, interpolation);
+       }
+       //used to free up memory 
+       g.dispose();
+       b.show();      
+    }
+    
+    public static void main(String[] args)
+    {
+        Game g = new Game();
+        g.renderables.add(new Renderable()
+        {
+            public void render(Graphics2D g, float interpolation)
+            {
+                g.setColor(Color.red);
+                g.drawRect(300, 250, 50, 100);
+            }
+        });
+        
+        g.Start();
     }
     
 }
+
 
 
 
