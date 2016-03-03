@@ -24,7 +24,7 @@ public class Game
         //initialise windows and jframe
         //game loop
         //while loop
-        Dimension gameSize= new Dimension(Game.width, Game.height);
+        Dimension gameSize= new Dimension(GameFlappyBird.width, GameFlappyBird.height);
         //window that canvas sits inside of
         JFrame gameWindow= new JFrame(gameName);
         //when press X it makes sure game shuts down

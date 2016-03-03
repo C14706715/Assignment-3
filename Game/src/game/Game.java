@@ -3,7 +3,8 @@
     Jake Young 
     DT282 Year 2
 */
-package game.flappybird;
+package game;
+
 import java.awt.Canvas;
 import java.awt.Dimension;
 import javax.swing.JFrame;
@@ -17,7 +18,7 @@ public class Game
     private String gameName="Flappy Bird";
     
     //Java object which allows me to draw to a window
-    private Canvas GameFlappBird= new Canvas();
+    private Canvas game= new Canvas();
             
     public void Start()
     {
@@ -30,9 +31,17 @@ public class Game
         //when press X it makes sure game shuts down
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameWindow.setSize(gameSize);
+        //means you cant resize window
         gameWindow.setResizable(false);
+        //allows you to view the game
         gameWindow.setVisible(true);
         game.setSize(gameSize);
+        game.setMaximumSize(gameSize);
+        game.setMaximumSize(gameSize);
+        game.setPreferredSize(gameSize);
+        gameWindow.add(game);
+        //This ensure game is centered in the screen
+        gameWindow.setLocationRelativeTo(null);
         
         
         
