@@ -54,7 +54,6 @@ public class Pipes implements Updatable, Renderable
             
     //This updates the pipes
     //This ensure the pipes slide of to the right
-    @Override
      public void update(Input input)
      {
          x1+=xVel;
@@ -98,13 +97,13 @@ public class Pipes implements Updatable, Renderable
                 break;
          }
      }
-     
      //This renders the pipes
-     @Override
      public void render(Graphics2D g, float interpolation)
      {
-         g.setColor(Color.RED);
+         g.setColor(Color.blue);
          
+         
+         //pipe1
          //this will give me the amount of space the pipe shifted
          //top pipe
          g.fillRect((int) (x1+(xVel*interpolation)), 0, pipeWidth, (int) y1);
