@@ -42,7 +42,7 @@ public class Game
         updatables.remove(u);
     }
     
-        public void addRenderable(Renderable u)
+    public void addRenderable(Renderable u)
     {
         renderables.add(u);
     }
@@ -122,6 +122,16 @@ public class Game
             //this ensures the game runs seamlessly without lagging
             render(interpolation);
             
+            //FPS check
+            //checks if a second has passed
+            if(System.currentTimeMillis() - timeAtLastFPSCheck >= 1000)
+            {
+                System.out.println("FPS: "+ ticks);
+                gameWindow.setTitle(gameName+ "-FPS: "+ticks);
+                ticks=0;
+                //every second that passes the loop is re-run
+                timeAtLastFPSCheck = System.currentTimeMillis();
+            }
         }//game is finished
     }
 
