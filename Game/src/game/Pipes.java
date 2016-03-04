@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
 
@@ -82,15 +83,15 @@ public class Pipes implements Updatable, Renderable
             
          switch(currentPipe)
          {
-             case 0;
+             case 0:
                 pipeCoords[0][0]=x1;
                 pipeCoords[0][1]=y1;
                 break;
-             case 1;
+             case 1:
                 pipeCoords[1][0]=x2;
                 pipeCoords[1][1]=y2;
                 break;
-             case 2;
+             case 2:
                 pipeCoords[2][0]=x3;
                 pipeCoords[2][1]=y3;
                 break;
@@ -99,6 +100,55 @@ public class Pipes implements Updatable, Renderable
      //This renders the pipes
      public void render(Graphics2D g, float interpolation)
      {
-     
+         g.setColor(Color.blue);
+         
+         
+         //pipe1
+         //this will give me the amount of space the pipe shifted
+         //top pipe
+         g.fillRect((int) (x1+(xVel*interpolation)), 0, pipeWidth, (int) y1);
+         //bottom pipe
+         g.fillRect((int) (x1+(xVel*interpolation)), (int) (y1+pipeVerticalSpacing), pipeWidth, Game.height);
+         
+        //pipe2
+        //top pipe
+         g.fillRect((int) (x2+(xVel*interpolation)), 0, pipeWidth, (int) y1);
+         //bottom pipe
+         g.fillRect((int) (x2+(xVel*interpolation)), (int) (y2+pipeVerticalSpacing), pipeWidth, Game.height);
+          
+         //pipe3
+         //top pipe
+         g.fillRect((int) (x3+(xVel*interpolation)), 0, pipeWidth, (int) y1);
+         //bottom pipe
+         g.fillRect((int) (x3+(xVel*interpolation)), (int) (y3+pipeVerticalSpacing), pipeWidth, Game.height);
+         
      }
+     
+     public float[] getCurrentPipe()
+     {
+         return pipeCoords[currentPipe];
+     }
+     
+     public int getCurrentPipeID()
+     {
+         return currentPipe;
+     }
+     
+     public int getPipeWidth()
+     {
+         return pipeWidth;
+     }
+     
+     public int getPipeHorizontalSpacing()
+     {
+         return pipeHorizontalSpacing;
+     }
+     
+     public int getPipeVerticalSpacing()
+     {
+         return pipeVerticalSpacing;
+     }
+     
+    
+         
 }
