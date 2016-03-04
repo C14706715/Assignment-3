@@ -30,7 +30,24 @@ public class Pipes implements Updatable, Renderable
     
     public void resetPipes()
     {
+        currentPipe=0;
         
+        x1=Game.width*2;
+        //this will give you the next cordinate with spacing included
+        x2=x1+pipeWidth+pipeHorizontalSpacing;
+        x3=x2+pipeWidth+pipeHorizontalSpacing;
+        
+        y1=getRandomY();
+        y2=getRandomY();
+        y3=getRandomY();
+        
+    }
+    
+    private int getRandomY()
+    {
+        //this will give you 40% of the games height
+        //this required me to draw this out ultiple times on paper to understand the equation
+        return rand.nextInt((int)(Game.height*0.4f)+(Game.height/10));
     }
     
     
