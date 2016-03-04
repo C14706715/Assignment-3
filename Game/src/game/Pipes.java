@@ -49,15 +49,52 @@ public class Pipes implements Updatable, Renderable
         //this required me to draw this out ultiple times on paper to understand the equation
         return rand.nextInt((int)(Game.height*0.4f)+(Game.height/10));
     }
-    
-    
-            
-            
+     
             
     //This updates the pipes
+    //This ensure the pipes slide of to the right
      public void update(Input input)
      {
+         x1+=xVel;
+         x2+=xVel;
+         x3+=xVel;
          
+         //reset pipes if moved off screen
+         if(x1+pipeWidth<0)
+         {
+            x1=Game.width;
+            y1=getRandomY();
+            //this is the only pipe which is possible for the bird to collide with
+            currentPipe=1;
+         }
+         if(x1+pipeWidth<0)
+         {
+             x2=Game.width;
+             y2=getRandomY();
+             currentPipe=2;
+         }
+         if(x3+pipeWidth<0)
+         {
+             x3=Game.width;
+             y3=getRandomY();
+             currentPipe=0;
+         }
+            
+         switch(currentPipe)
+         {
+             case 0;
+                pipeCoords[0][0]=x1;
+                pipeCoords[0][1]=y1;
+                break;
+             case 1;
+                pipeCoords[1][0]=x2;
+                pipeCoords[1][1]=y2;
+                break;
+             case 2;
+                pipeCoords[2][0]=x3;
+                pipeCoords[2][1]=y3;
+                break;
+         }
      }
      //This renders the pipes
      public void render(Graphics2D g, float interpolation)
