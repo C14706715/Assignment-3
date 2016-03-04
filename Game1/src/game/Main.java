@@ -1,6 +1,5 @@
 package game;
 
-
 public class Main 
 {
     public static void main(String[] args)
@@ -13,6 +12,6 @@ public class Main
         g.addRenderable(p);
         g.addUpdatable(p);
         //Start
-        g.Start();
+        g.start();
     }
 }

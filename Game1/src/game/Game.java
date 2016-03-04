@@ -6,7 +6,6 @@
 package game;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
@@ -52,7 +51,7 @@ public class Game
         renderables.remove(u);
     }
     
-    public void Start()
+    public void start()
     {
         //initialise windows and jframe
         //game loop
@@ -155,6 +154,7 @@ public class Game
        Graphics2D g = (Graphics2D) b.getDrawGraphics();
        //this method clears everything on screen and redraws everything
        g.clearRect(0, 0, game.getWidth(), game.getHeight());
+       
        for(Renderable r: renderables)   
        {
           r.render(g, interpolation);
@@ -163,20 +163,4 @@ public class Game
        g.dispose();
        b.show();      
     }
-    
-    public static void main(String[] args)
-    {
-        Game g = new Game();
-        g.renderables.add(new Renderable()
-        {
-            public void render(Graphics2D g, float interpolation)
-            {
-                g.setColor(Color.red);
-                g.drawRect(300, 250, 50, 100);
-            }
-        });
-        
-        g.Start();
-    }
-    
 }
