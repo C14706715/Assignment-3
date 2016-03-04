@@ -76,6 +76,8 @@ public class Game
         
         
         input = new Input();
+        //this add the input to the canvas and ensures the game is using what the user pressed
+        game.addKeyListener(input);
         
         //game loop
         //this is one update

@@ -3,6 +3,7 @@ package game;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Bird implements Updatable, Renderable
 {
@@ -26,6 +27,17 @@ public class Bird implements Updatable, Renderable
         resetBird();
         
         this.pipes = pipes;
+        
+        try
+        {
+            flapUp = Sprite.getSprite("bird_up.png");
+            flapDown = Sprite.getSprite("bird_down.png");
+        }
+            catch (IOException ex)
+            {
+                System.err.println(ex.getMessage());
+                System.exit(1);
+            }
     }
     
     
@@ -36,18 +48,36 @@ public class Bird implements Updatable, Renderable
         yVel=baseYVel;
     }
     
-    public void lap()
+    public void flap()
     {
         yVel = baseYVel;
         
     }
     
     //This updates the bird
+    @Override
      public void update(Input input)
      {
+         y += yVel;
+         //overtime the yVel will slowly go from upwards to downwards
+         yVel += gravity;
          
-     }
+         if(y<0)
+         {
+             //keeps the bird at top of screen if bird is pressed to the top of screen
+             y=0;
+             yVel=0;
+         }
+         
+         if(input.isSpacePressed())
+         {
+             flap();
+         }
+         
+         
+     
      //This renders the bird
+     @Override
      public void render(Graphics2D g, float interpolation)
      {
      
