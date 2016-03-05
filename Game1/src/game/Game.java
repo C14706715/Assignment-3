@@ -41,14 +41,14 @@ public class Game
         updatables.remove(u);
     }
     
-    public void addRenderable(Renderable u)
+    public void addRenderable(Renderable r)
     {
-        renderables.add(u);
+        renderables.add(r);
     }
     
-    public void removeRederable(Renderable u)
+    public void removeRenderable(Renderable r)
     {
-        renderables.remove(u);
+        renderables.remove(r);
     }
     
     public void start()
@@ -68,7 +68,7 @@ public class Game
         gameWindow.setVisible(true);
         game.setSize(gameSize);
         game.setMaximumSize(gameSize);
-        game.setMaximumSize(gameSize);
+        game.setMinimumSize(gameSize);
         game.setPreferredSize(gameSize);
         gameWindow.add(game);
         //This ensure game is centered in the screen
@@ -83,9 +83,9 @@ public class Game
         //this is one update
         //60 frames per second
         final int TICKS_PER_SECOND = 60;
-        final int TIME_PER_TICK = 100/TICKS_PER_SECOND;
+        final int SKIP_TICKS = 1000/TICKS_PER_SECOND;
         //this is the max amount of updates per render
-        final int MAX_FRAMESKIPS = 5;
+        final int MAX_FRAMESKIP = 5;
         
         //real time
         long nextGameTick=System.currentTimeMillis();
@@ -106,12 +106,12 @@ public class Game
             //this while loop checks is program is running slow, keep updating 
             //until it has been updated the max amount of times
             //updating
-            while(System.currentTimeMillis() > nextGameTick && loops < MAX_FRAMESKIPS)
+            while(System.currentTimeMillis() > nextGameTick && loops < MAX_FRAMESKIP)
             {
                update();
                //keeps track of how many updates has gone through per second
                ticks++;
-               nextGameTick += TIME_PER_TICK;
+               nextGameTick += SKIP_TICKS;
                //keeps track of how many loops which the while loop has gone through
                loops++;
             }
@@ -119,8 +119,7 @@ public class Game
             //rendering
             //this compares how much time it actually took to render compared to how much time was predicted to render
             //have to cast to a float
-            interpolation = (float) ((System.currentTimeMillis() + TIME_PER_TICK)-nextGameTick)/(float)TIME_PER_TICK;
-            //this ensures the game runs seamlessly without lagging
+            interpolation = (float) ((System.currentTimeMillis() + SKIP_TICKS)-nextGameTick)/(float)SKIP_TICKS;
             render(interpolation);
             
             //FPS check
