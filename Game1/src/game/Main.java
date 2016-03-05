@@ -7,10 +7,14 @@ public class Main
         Game g = new Game();
         //Initialise game objects
         Pipes p = new Pipes();
+        Bird b = new Bird(p);
         
         //add updatables and renderables
         g.addRenderable(p);
         g.addUpdatable(p);
+        
+        g.addRenderable(b);
+        g.addUpdatable(b);
         //Start
         g.start();
     }
