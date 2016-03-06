@@ -1,7 +1,9 @@
 package game;
 
-public interface Updatable {
-    
+
+//Very simple class to provide and update method
+public interface Updatable 
+{    
     public void update(Input input);
     
 }
