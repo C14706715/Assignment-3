@@ -21,8 +21,8 @@ public class Game
     private Canvas game = new Canvas();
    
     //Final means it can't be changed
-    public final static int WIDTH = 800;
-    public final static int HEIGHT = 600;
+    public final static int width = 800;
+    public final static int height = 600;
     
     //String to save in the games title
     private String gameName = "Flappy Bird";
@@ -62,7 +62,7 @@ public class Game
     public void start() 
     {
         // Initialise windows and JFrame
-        Dimension gameSize = new Dimension(Game.WIDTH, Game.HEIGHT);
+        Dimension gameSize = new Dimension(Game.width, Game.height);
         //JFrame creates the game window
         JFrame gameWindow = new JFrame(gameName);
         //Eror Handling: this ensures game shuts down when press X

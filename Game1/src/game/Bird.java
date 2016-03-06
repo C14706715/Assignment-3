@@ -85,9 +85,9 @@ public class Bird implements Updatable, Renderable
         float pipeY = pipeCoords[1];
         
         //this long if statement is implemnted when the bird attempts to pass through the first(current) pipe
-        if((x >= pipeX && x <= pipeX + pipes.getPipeWidth() && 
+        if((x >= pipeX && x <= pipeX + pipes.getPipewidth() && 
           (y <= pipeY || y >= pipeY + pipes.getPipeVerticalSpacing())) || 
-           y >= Game.HEIGHT ) 
+           y >= Game.height ) 
         {
             pipes.resetPipes();
             resetBird();
