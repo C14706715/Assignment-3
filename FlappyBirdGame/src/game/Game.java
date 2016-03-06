@@ -21,11 +21,12 @@ public class Game
     private Canvas game = new Canvas();
    
     //Final means it can't be changed
+
     public final static int width = 800;
     public final static int height = 600;
     
     //String to save in the games title
-    private String gameName = "Flappy Bird";
+    private String gameName = "C14706715-Assignment 3: Flappy Bird";
     
     //Instance of input class 
     private Input input;
@@ -98,8 +99,6 @@ public class Game
         int loops;
         //prevents characters from skipping
         float interpolation;
-        long timeAtLastFPSCheck = 0;
-        int ticks = 0;
         
         //To check if game is running
         boolean running = true;
@@ -113,8 +112,7 @@ public class Game
             while(System.currentTimeMillis() > nextGameTick && loops < MAX_FRAMESKIP) 
             {
                 update();
-                //Keeps track of how many updates has gone through per second
-                ticks++;
+               
                 nextGameTick += SKIP_TICKS;
                 //Keeps track of how many loops which the whie loop has gone through
                 loops++;
@@ -128,16 +126,6 @@ public class Game
                             / (float) SKIP_TICKS;
             render(interpolation);
             
-            //FPS check
-            //check if a second has passed
-            if(System.currentTimeMillis() - timeAtLastFPSCheck >= 1000) 
-            {
-                System.out.println("FPS: " + ticks);
-                gameWindow.setTitle(gameName + " - FPS: " + ticks);
-                ticks = 0;
-                //Every second that passes the loop is re-run
-                timeAtLastFPSCheck = System.currentTimeMillis();
-            }
         }//Game is finished
     }
     
