@@ -5,8 +5,11 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
 
-public class Pipes implements Updatable, Renderable {
-    
+//Implements allows the class to act on other classes i.e. updatable and renderable
+public class Pipes implements Updatable, Renderable 
+{
+    //Initialise variables
+    //Some are set to be used exclusively in this class(Private)
     private int pipeWidth = 100;
     private int pipeHorizontalSpacing = 210;
     private int pipeVerticalSpacing = 180;
@@ -20,18 +23,25 @@ public class Pipes implements Updatable, Renderable {
     // An array to hold the pipes
     private float[][] pipeCoords = new float[3][2];
     
+    //This method lets me automatically generate random numbers
     private Random rand;
     
-    public Pipes() {
+    
+    public Pipes() 
+    {
         rand = new Random();
         
         resetPipes();
     }
     
-    public void resetPipes() {
+    
+    public void resetPipes() 
+    {
         currentPipe = 0;
         
         x1 = Game.WIDTH * 2;
+        //This will give you the co-ordinates for the next set of x and y co-ordinates
+        //with spacing included
         x2 = x1 + pipeWidth + pipeHorizontalSpacing;
         x3 = x2 + pipeWidth + pipeHorizontalSpacing;
         
@@ -40,54 +50,75 @@ public class Pipes implements Updatable, Renderable {
         y3 = getRandomY();
     }
     
-    public float[] getCurrentPipe() {
+    
+    //Helper method to return relevent information from class
+    public float[] getCurrentPipe() 
+    {
         return pipeCoords[currentPipe];
     }
     
-    public int getCurrentPipeID() {
+    public int getCurrentPipeID() 
+    { 
         return currentPipe;
     }
     
-    public int getPipeWidth() {
+    public int getPipeWidth() 
+    {
         return pipeWidth;
     }
     
-    public int getPipeHorizontalSpacing() {
+    public int getPipeHorizontalSpacing() 
+    {
         return pipeHorizontalSpacing;
     }
     
-    public int getPipeVerticalSpacing() {
+    public int getPipeVerticalSpacing() 
+    {
         return pipeVerticalSpacing;
     }
     
-    private int getRandomY() {
+    private int getRandomY() 
+    {
+        //This will give you 40% of the games height
+        //This required me to draw this out multiple times on paper to 
+        //understand the equation i'm trying to create
         return rand.nextInt((int)(Game.HEIGHT * 0.4f)) + (Game.HEIGHT / 10);
     }
     
     @Override
-    public void update(Input input) {
+    public void update(Input input) 
+    {
         x1 += xVel;
         x2 += xVel;
         x3 += xVel;
         
-        if(x1 + pipeWidth < 0) {
+        //Reset pipes if they move off the window
+        if(x1 + pipeWidth < 0) 
+        {
             x1 = Game.WIDTH;
             y1 = getRandomY();
+            //This is the only pipe which is possible for the bird to
+            //collide with
             currentPipe = 1;
         }
-        if(x2 + pipeWidth < 0) {
+        
+        if(x2 + pipeWidth < 0) 
+        {
             x2 = Game.WIDTH;
             y2 = getRandomY();
             currentPipe = 2;
         }
-        if(x3 + pipeWidth < 0) {
+        
+        if(x3 + pipeWidth < 0) 
+        {
             x3 = Game.WIDTH;
             y3 = getRandomY();
             currentPipe = 0;
         }
         
         // Update pipe coordinates
-        switch(currentPipe) {
+        switch(currentPipe) 
+        {
             case 0:
                 pipeCoords[0][0] = x1;
                 pipeCoords[0][1] = y1;
@@ -104,10 +135,13 @@ public class Pipes implements Updatable, Renderable {
     }
     
 
-    public void render(Graphics2D g, float interpolation) {
+    //This enders the pipes    
+    public void render(Graphics2D g, float interpolation) 
+    {
         g.setColor(Color.BLUE);
         
         // Pipe 1
+        //This will give me the amount of space the pipe has shifted
         g.fillRect((int) (x1 + (xVel * interpolation)), 0, pipeWidth, (int) y1);
         g.fillRect((int) (x1 + (xVel * interpolation)), (int) (y1 + pipeVerticalSpacing), pipeWidth, Game.HEIGHT);
         
@@ -119,5 +153,4 @@ public class Pipes implements Updatable, Renderable {
         g.fillRect((int) (x3 + (xVel * interpolation)), 0, pipeWidth, (int) y3);
         g.fillRect((int) (x3 + (xVel * interpolation)), (int) (y3 + pipeVerticalSpacing), pipeWidth, Game.HEIGHT);
     }
-    
 }
