@@ -136,21 +136,21 @@ public class Pipes implements Updatable, Renderable
     
 
     //This enders the pipes    
-    public void render(Graphics2D g, float interpolation) 
+    public void render(Graphics2D g, float timeGap) 
     {
         g.setColor(Color.BLUE);
         
         // Pipe 1
         //This will give me the amount of space the pipe has shifted
-        g.fillRect((int) (x1 + (xVel * interpolation)), 0, pipewidth, (int) y1);
-        g.fillRect((int) (x1 + (xVel * interpolation)), (int) (y1 + pipeVerticalSpacing), pipewidth, Game.height);
+        g.fillRect((int) (x1 + (xVel * timeGap)), 0, pipewidth, (int) y1);
+        g.fillRect((int) (x1 + (xVel * timeGap)), (int) (y1 + pipeVerticalSpacing), pipewidth, Game.height);
         
         // Pipe 2
-        g.fillRect((int) (x2 + (xVel * interpolation)), 0, pipewidth, (int) y2);
-        g.fillRect((int) (x2 + (xVel * interpolation)), (int) (y2 + pipeVerticalSpacing), pipewidth, Game.height);
+        g.fillRect((int) (x2 + (xVel * timeGap)), 0, pipewidth, (int) y2);
+        g.fillRect((int) (x2 + (xVel * timeGap)), (int) (y2 + pipeVerticalSpacing), pipewidth, Game.height);
         
         // Pipe 3
-        g.fillRect((int) (x3 + (xVel * interpolation)), 0, pipewidth, (int) y3);
-        g.fillRect((int) (x3 + (xVel * interpolation)), (int) (y3 + pipeVerticalSpacing), pipewidth, Game.height);
+        g.fillRect((int) (x3 + (xVel * timeGap)), 0, pipewidth, (int) y3);
+        g.fillRect((int) (x3 + (xVel * timeGap)), (int) (y3 + pipeVerticalSpacing), pipewidth, Game.height);
     }
 }

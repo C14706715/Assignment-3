@@ -98,7 +98,7 @@ public class Game
         long nextGameTick = System.currentTimeMillis();
         int loops;
         //prevents characters from skipping
-        float interpolation;
+        float timeGap;
         
         //To check if game is running
         boolean running = true;
@@ -122,9 +122,9 @@ public class Game
             //This compares how much time it actually took to render compared
             //to how much time was predicted to render
             //Have to cast to a float
-            interpolation = (float) (System.currentTimeMillis() + SKIP_TICKS - nextGameTick)
+            timeGap = (float) (System.currentTimeMillis() + SKIP_TICKS - nextGameTick)
                             / (float) SKIP_TICKS;
-            render(interpolation);
+            render(timeGap);
             
         }//Game is finished
     }
@@ -139,7 +139,7 @@ public class Game
     }
     
     
-    private void render(float interpolation) 
+    private void render(float timeGap) 
     {
         //Used in gaming
         BufferStrategy bs = game.getBufferStrategy();
@@ -154,7 +154,7 @@ public class Game
         
         for(Renderable r : renderables) 
         {
-            r.render(g, interpolation);
+            r.render(g, timeGap);
         }
         g.dispose();
         bs.show();

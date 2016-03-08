@@ -104,12 +104,12 @@ public class Bird implements Updatable, Renderable
     }
 
  
-    public void render(Graphics2D g, float interpolation) 
+    public void render(Graphics2D g, float timeGap) 
     {
         g.setColor(Color.red);
         g.setFont(gameFont);
         
-        g.drawImage(yVel <= 0 ? flapUp : flapDown, (int) x, (int) (y + (yVel * interpolation)), null);
+        g.drawImage(yVel <= 0 ? flapUp : flapDown, (int) x, (int) (y + (yVel * timeGap)), null);
         g.drawString("Score: " + score, 20, 50);
     }
 }
