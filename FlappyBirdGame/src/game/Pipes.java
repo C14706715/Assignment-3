@@ -137,18 +137,21 @@ public class Pipes implements Updatable, Renderable
     //This enders the pipes    
     public void render(Graphics2D g, float timeGap) 
     {
-        g.setColor(Color.GREEN);
+        
         
         // Pipe 1
         //This will give me the amount of space the pipe has shifted
+        g.setColor(new Color(0, 128, 0));
         g.fillRect((int) (x1 + (xVel * timeGap)), 0, pipewidth, (int) y1);
         g.fillRect((int) (x1 + (xVel * timeGap)), (int) (y1 + pipeVerticalSpacing), pipewidth, Game.height);
-        g.setColor(Color.getHSBColor (116, 100, 70));
+        
         // Pipe 2
+        g.setColor(new Color(10, 168, 50));
         g.fillRect((int) (x2 + (xVel * timeGap)), 0, pipewidth, (int) y2);
         g.fillRect((int) (x2 + (xVel * timeGap)), (int) (y2 + pipeVerticalSpacing), pipewidth, Game.height);
-        g.setColor(Color.RED);
+        
         // Pipe 3
+        g.setColor(new Color(0, 188, 30));
         g.fillRect((int) (x3 + (xVel * timeGap)), 0, pipewidth, (int) y3);
         g.fillRect((int) (x3 + (xVel * timeGap)), (int) (y3 + pipeVerticalSpacing), pipewidth, Game.height);
     }

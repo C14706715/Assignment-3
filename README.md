@@ -17,3 +17,7 @@ What I learned:
 -Canvas: Java object which allows me to draw to the game window  
 -JFrame: creates the game window  
 -KeyListener: this is a built-in interface for users input  
+
+Parts of Assignment which I found difficult:  
+-I found learning how to set the background image to be particularly difficult.  
+ In Java, There is not one set way to do this as it is not built-in.

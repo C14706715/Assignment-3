@@ -14,8 +14,10 @@ import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
-public class Game 
+
+public class Game extends JFrame
 {    
+    
     //Java object which allows me to draw to the game window
     //Private means it can only be accessed by instances of the same object class
     private Canvas game = new Canvas();
@@ -58,10 +60,10 @@ public class Game
     {
         renderables.remove(r);
     }
-    
-    
+ 
+
     public void start() 
-    {
+    {      
         // Initialise windows and JFrame
         Dimension gameSize = new Dimension(Game.width, Game.height);
         //JFrame creates the game window
@@ -80,7 +82,7 @@ public class Game
         gameWindow.add(game);
         //this ensures the game is centered in the screen
         gameWindow.setLocationRelativeTo(null);
-        
+
         // Initialise input
         input = new Input();
         //This adds the input to the canvas and ensures
