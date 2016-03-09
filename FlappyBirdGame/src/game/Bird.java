@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 
 public class Bird implements Updatable, Renderable 
@@ -18,6 +19,7 @@ public class Bird implements Updatable, Renderable
     private float gravity = 0.25f;
     private int scoredPipe = 0;
     private int score = 0;
+    private int HighScore = 0;
    
     private Pipes pipes;
     
@@ -99,6 +101,12 @@ public class Bird implements Updatable, Renderable
             int currentPipeID = pipes.getCurrentPipeID();
             // ?: This is a conditional operator
             score = (scoredPipe != currentPipeID) ? score + 1 : score;
+            //Checks if score if greater than highscore if so highscore increments
+            if(score>HighScore)
+                HighScore=score;
+            else
+                HighScore=HighScore;
+            
             scoredPipe = currentPipeID;
         }
     }
@@ -106,10 +114,18 @@ public class Bird implements Updatable, Renderable
  
     public void render(Graphics2D g, float timeGap) 
     {
-        g.setColor(Color.red);
+        
+        Random random = new Random();
+        g.setColor(new Color(0, 26, 153));
         g.setFont(gameFont);
         
         g.drawImage(yVel <= 0 ? flapUp : flapDown, (int) x, (int) (y + (yVel * timeGap)), null);
-        g.drawString("Score: " + score, 20, 50);
+        g.drawString("Flappy Bird", 20, 450);
+        g.setColor(new Color(0, 102, 153));
+        g.drawString("Score: " + score, 20, 500);
+        if(score>HighScore)
+            HighScore=score;
+        g.setColor(new Color(0, 153, 128));
+        g.drawString("Highscore: " + HighScore, 20, 550);
     }
 }

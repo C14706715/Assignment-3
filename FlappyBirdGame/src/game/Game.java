@@ -15,9 +15,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 
-public class Game extends JFrame
-{    
-    
+public class Game 
+{   
     //Java object which allows me to draw to the game window
     //Private means it can only be accessed by instances of the same object class
     private Canvas game = new Canvas();
