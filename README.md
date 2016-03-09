@@ -10,7 +10,7 @@ This game when finished will be available to work on android devices which will 
 
 
 What I learned:
--@Override: This overrides the functionality of the specified method\n
+-@Override: This overrides the functionality of the specified method
 -?: This is a conditional operator
 -Private: This means it can only be accessed by instances of the same object class
 -Canvas: Java object which allows me to draw to the game window
