@@ -1,6 +1,5 @@
 package game;
 
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
@@ -23,13 +22,13 @@ public class Pipes implements Updatable, Renderable
     // An array to hold the pipes
     private float[][] pipeCoords = new float[3][2];
     
-    //This method lets me automatically generate random numbers
-    private Random rand;
+    //This method lets me automatically generate randomom numbers
+    private Random random;
     
     
     public Pipes() 
     {
-        rand = new Random();
+        random = new Random();
         
         resetPipes();
     }
@@ -45,9 +44,9 @@ public class Pipes implements Updatable, Renderable
         x2 = x1 + pipewidth + pipeHorizontalSpacing;
         x3 = x2 + pipewidth + pipeHorizontalSpacing;
         
-        y1 = getRandomY();
-        y2 = getRandomY();
-        y3 = getRandomY();
+        y1 = getrandomomY();
+        y2 = getrandomomY();
+        y3 = getrandomomY();
     }
     
     
@@ -77,12 +76,12 @@ public class Pipes implements Updatable, Renderable
         return pipeVerticalSpacing;
     }
     
-    private int getRandomY() 
+    private int getrandomomY() 
     {
         //This will give you 40% of the games height
         //This required me to draw this out multiple times on paper to 
         //understand the equation i'm trying to create
-        return rand.nextInt((int)(Game.height * 0.4f)) + (Game.height / 10);
+        return random.nextInt((int)(Game.height * 0.4f)) + (Game.height / 10);
     }
     
     @Override
@@ -96,7 +95,7 @@ public class Pipes implements Updatable, Renderable
         if(x1 + pipewidth < 0) 
         {
             x1 = Game.width;
-            y1 = getRandomY();
+            y1 = getrandomomY();
             //This is the only pipe which is possible for the bird to
             //collide with
             currentPipe = 1;
@@ -105,14 +104,14 @@ public class Pipes implements Updatable, Renderable
         if(x2 + pipewidth < 0) 
         {
             x2 = Game.width;
-            y2 = getRandomY();
+            y2 = getrandomomY();
             currentPipe = 2;
         }
         
         if(x3 + pipewidth < 0) 
         {
             x3 = Game.width;
-            y3 = getRandomY();
+            y3 = getrandomomY();
             currentPipe = 0;
         }
         
@@ -138,17 +137,17 @@ public class Pipes implements Updatable, Renderable
     //This enders the pipes    
     public void render(Graphics2D g, float timeGap) 
     {
-        g.setColor(Color.BLUE);
+        g.setColor(Color.GREEN);
         
         // Pipe 1
         //This will give me the amount of space the pipe has shifted
         g.fillRect((int) (x1 + (xVel * timeGap)), 0, pipewidth, (int) y1);
         g.fillRect((int) (x1 + (xVel * timeGap)), (int) (y1 + pipeVerticalSpacing), pipewidth, Game.height);
-        
+        g.setColor(Color.getHSBColor (116, 100, 70));
         // Pipe 2
         g.fillRect((int) (x2 + (xVel * timeGap)), 0, pipewidth, (int) y2);
         g.fillRect((int) (x2 + (xVel * timeGap)), (int) (y2 + pipeVerticalSpacing), pipewidth, Game.height);
-        
+        g.setColor(Color.RED);
         // Pipe 3
         g.fillRect((int) (x3 + (xVel * timeGap)), 0, pipewidth, (int) y3);
         g.fillRect((int) (x3 + (xVel * timeGap)), (int) (y3 + pipeVerticalSpacing), pipewidth, Game.height);
