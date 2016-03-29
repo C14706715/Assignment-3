@@ -10,7 +10,7 @@ So I decided to go with the well known game Flappy Bird with my own twists on it
 This game when finished will be available to work on android devices which will show how much extra work and learning I had to do for this assignment.
 
 
-What I learned from this assignment:
+##What I learned from this assignment:
 -@Override: This overrides the functionality of the specified method  
 -?: This is a conditional operator  
 -Private: This means it can only be accessed by instances of the same object class  
@@ -18,12 +18,12 @@ What I learned from this assignment:
 -JFrame: creates the game window  
 -KeyListener: this is a built-in interface for users input  
 
-Parts of Assignment which I found difficult:  
+##Parts of Assignment which I found difficult:  
 -I found learning how to set the background image to be particularly difficult.  
  In Java, There is not one set way to do this as it is not built-in.  
  I was unable to add an image as it seemed to always give me compiler issues and errors.  
 
-What we learned this semester:  
+##What we learned this semester:  
 -Use of variables, loops, nested loops and statements  
 -Use of methods  
 -Iterating over arrays  
@@ -36,7 +36,7 @@ What we learned this semester:
 -The use of polymorphism  
 -Constructor methods  
 
-What I implemented into this assignment:  
+##What I implemented into this assignment:  
 -Use of variables, loops, nested loops and statements  
  This was implemented thorughout this project as they   
  are the bare essentials for all programs  
