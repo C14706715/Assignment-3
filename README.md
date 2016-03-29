@@ -11,30 +11,30 @@ This game when finished will be available to work on android devices which will 
 
 
 ##What I learned from this assignment:
-*@Override: This overrides the functionality of the specified method  
-*?: This is a conditional operator  
-*Private: This means it can only be accessed by instances of the same object class  
-*Canvas: Java object which allows me to draw to the game window  
-*JFrame: creates the game window  
-*KeyListener: this is a built-in interface for users input  
+-@Override: This overrides the functionality of the specified method  
+-?: This is a conditional operator  
+-Private: This means it can only be accessed by instances of the same object class  
+-Canvas: Java object which allows me to draw to the game window  
+-JFrame: creates the game window  
+-KeyListener: this is a built-in interface for users input  
 
 ##Parts of Assignment which I found difficult:  
-*I found learning how to set the background image to be particularly difficult.  
+-I found learning how to set the background image to be particularly difficult.  
  In Java, There is not one set way to do this as it is not built-in.  
  I was unable to add an image as it seemed to always give me compiler issues and errors.  
 
 ##What we learned this semester:  
-*Use of variables, loops, nested loops and statements  
-*Use of methods  
-*Iterating over arrays  
-*The difference between arrays and arraylists  
-*Map method  
-*Loading data   
-*The use of git for cloning, push and pull  
-*Making classes  
-*Creating instances of classes  
-*The use of polymorphism  
-*Constructor methods  
+-Use of variables, loops, nested loops and statements  
+-Use of methods  
+-Iterating over arrays  
+-The difference between arrays and arraylists  
+-Map method  
+-Loading data   
+-The use of git for cloning, push and pull  
+-Making classes  
+-Creating instances of classes  
+-The use of polymorphism  
+-Constructor methods  
 
 ##What I implemented into this assignment:  
 ####Use of variables, loops, nested loops and statements  
