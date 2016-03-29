@@ -37,28 +37,28 @@ This game when finished will be available to work on android devices which will 
 -Constructor methods  
 
 ##What I implemented into this assignment:  
--Use of variables, loops, nested loops and statements  
+####-Use of variables, loops, nested loops and statements  
  This was implemented thorughout this project as they   
  are the bare essentials for all programs  
--Use of methods   
+####-Use of methods   
  I not only used for the genereal use i.e. main(), I   
  also used them universally as in had the same method names for each class for ease  
--Iterating over arrays   
+####-Iterating over arrays   
  Arrays are seen all over this prgram as they are mainly   
  used to ensure smooth running of the game i.e. update and render  
--The use of git for cloning, push and pull    
+####-The use of git for cloning, push and pull    
  I used git as it proved to be very beneficial when reviewing   
  code and for copying code from a previous save if I ended up crashing my code  
--Making classes   
+####-Making classes   
  Classes are also used throughout to seperate some methods to make the   
  game more universal  
--Creating instances of classes    
+####-Creating instances of classes    
  Instances of classes were used to allow me to access variables from  
  outside the main method 
--The use of polymorphism   
+####-The use of polymorphism   
  I used polymorphism to allow me to collect the users input through KeyListener.  
  This is done through implements and extends  
--Constructor methods  
+####-Constructor methods  
  Constructors were used in all classes which made my code more readable and easy to follow  
   
      
