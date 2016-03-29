@@ -8,11 +8,17 @@ package game;
 
 //Libraries
 import java.awt.Canvas;
-import java.awt.Dimension;
+
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
+
+
+
+import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+
 
 
 public class Game 
@@ -62,7 +68,7 @@ public class Game
  
 
     public void start() 
-    {      
+    {          
         // Initialise windows and JFrame
         Dimension gameSize = new Dimension(Game.width, Game.height);
         //JFrame creates the game window
@@ -144,7 +150,8 @@ public class Game
     {
         //Used in gaming
         BufferStrategy bs = game.getBufferStrategy();
-        if(bs == null) {
+        if(bs == null) 
+        {
             game.createBufferStrategy(2);
             return;
         }

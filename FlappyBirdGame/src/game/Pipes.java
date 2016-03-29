@@ -19,6 +19,7 @@ public class Pipes implements Updatable, Renderable
     
     // The pipe that is closest to the bird
     private int currentPipe;
+   
     // An array to hold the pipes
     private float[][] pipeCoords = new float[3][2];
     
@@ -137,8 +138,6 @@ public class Pipes implements Updatable, Renderable
     //This enders the pipes    
     public void render(Graphics2D g, float timeGap) 
     {
-        
-        
         // Pipe 1
         //This will give me the amount of space the pipe has shifted
         g.setColor(new Color(0, 128, 0));
