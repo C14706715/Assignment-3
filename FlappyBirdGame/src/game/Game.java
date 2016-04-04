@@ -12,11 +12,7 @@ import java.awt.Canvas;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
-
-
-
 import java.awt.Dimension;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 

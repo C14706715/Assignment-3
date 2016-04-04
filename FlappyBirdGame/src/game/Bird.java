@@ -124,7 +124,9 @@ public class Bird implements Updatable, Renderable
         g.setColor(new Color(0, 102, 153));
         g.drawString("Score: " + score, 20, 500);
         if(score>HighScore)
+        {
             HighScore=score;
+        }
         g.setColor(new Color(0, 153, 128));
         g.drawString("Highscore: " + HighScore, 20, 550);
     }
