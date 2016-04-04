@@ -7,7 +7,9 @@ Then I decided I wanted to create a Pacman game which would demonstrate my knowl
 However I figured this game would be too time consuming and would not be demonstrating new found knowledge.  
 
 So I decided to go with the well known game Flappy Bird with my own twists on it.
-This game when finished will be available to work on android devices which will show how much extra work and learning I had to do for this assignment.
+This game when finished will be available to work on android devices which will show how much extra work and learning I had to do for this assignment.  
+
+Link to my assignment video: https://youtu.be/zMM5TExr8IU  
 
 
 ##What I learned from this assignment:
@@ -60,6 +62,8 @@ This game when finished will be available to work on android devices which will 
  This is done through implements and extends  
 ####Constructor methods  
  Constructors were used in all classes which made my code more readable and easy to follow  
+
+ 
   
      
 
